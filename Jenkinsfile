@@ -7,7 +7,7 @@ pipeline {
             spec:
                 containers:
                 - name: linux
-                  image: docker:latest
+                  image: docker:20.10.7-dind
                   command:
                   - cat
                   tty: true
