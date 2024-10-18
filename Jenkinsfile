@@ -1,26 +1,17 @@
 pipeline {
     agent {
         kubernetes {
-            yaml """
+            yaml '''
             apiVersion: v1
             kind: Pod
             spec:
-              containers:
-              - name: jnlp
-                image: jenkins/inbound-agent:latest
-                args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
-              - name: docker
-                image: docker:20.10.7-dind
-                securityContext:
-                  privileged: true
-                volumeMounts:
-                  - name: docker-sock
-                    mountPath: /var/run/docker.sock
-              volumes:
-              - name: docker-sock
-                hostPath:
-                  path: /var/run/docker.sock
-            """
+                containers:
+                - name: linux
+                  image: docker:latest
+                  command:
+                  - cat
+                  tty: true
+            '''
         }
     }
 
