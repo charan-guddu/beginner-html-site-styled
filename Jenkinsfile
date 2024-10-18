@@ -29,6 +29,7 @@ pipeline {
                 which git
                 cat /etc/resolv.conf
                 ping github.com
+                '''
             }
         }
 
