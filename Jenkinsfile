@@ -24,7 +24,11 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'gh-pages', url: 'https://github.com/charan-guddu/beginner-html-site-styled.git'
+                //git branch: 'gh-pages', url: 'https://github.com/charan-guddu/beginner-html-site-styled.git'
+                sh '''
+                which git
+                cat /etc/resolv.conf
+                ping github.com
             }
         }
 
